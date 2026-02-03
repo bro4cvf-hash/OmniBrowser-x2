@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "omnibrowser"
+version = "0.1.0"
+description = "The fastest multi-profile, multi-browser automation for AI agents"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Your Name", email = "your@email.com" }
+]
+keywords = [
+    "browser-automation",
+    "ai-agent",
+    "mcp",
+    "claude",
+    "chrome",
+    "multi-profile",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "pydantic>=2.0.0",
+    "httpx>=0.25.0",
+    "websockets>=12.0",
+    "aiofiles>=23.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+anthropic = ["anthropic>=0.25.0"]
+openai = ["openai>=1.0.0"]
+all = [
+    "omnibrowser[anthropic]",
+    "omnibrowser[openai]",
+]
+
+[project.scripts]
+omnibrowser = "omnibrowser.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/omnibrowser"
+Documentation = "https://github.com/yourusername/omnibrowser#readme"
+Repository = "https://github.com/yourusername/omnibrowser"
+Issues = "https://github.com/yourusername/omnibrowser/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/omnibrowser"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
