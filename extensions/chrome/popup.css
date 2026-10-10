@@ -1,0 +1,48 @@
+:root { color-scheme: light dark; --bg: #f7f8fc; --surface: #fff; --text: #202638; --muted: #59647a; --border: #dce1ec; --accent: #4855bb; }
+* { box-sizing: border-box; }
+body { width: 360px; margin: 0; padding: 24px; background: var(--bg); color: var(--text); font: 13px/1.6 "Segoe UI", system-ui, sans-serif; }
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+h1 { font-size: 20px; letter-spacing: -.5px; line-height: 1.3; margin: 0; }
+h2 { font-size: 13px; line-height: 1.5; margin: 0; }
+p { margin: 6px 0 0; }
+.subtitle, .note, .setup p, label { color: var(--muted); }
+.subtitle { font-size: 12px; margin-top: 2px; }
+.status { display: flex; gap: 10px; padding: 14px; border: 0; border-radius: 12px; background: var(--surface); }
+.status p { font-size: 12px; color: var(--muted); margin-top: 3px; }
+.dot { flex: 0 0 8px; height: 8px; border-radius: 50%; background: #818ba1; margin-top: 6px; }
+.connected .dot { background: #16814b; }
+.disconnected .dot { background: #be6419; }
+.note { margin: 14px 0 20px; font-size: 12px; }
+.setup { background: var(--surface); border: 0; border-radius: 12px; padding: 16px; }
+.setup p { font-size: 12px; }
+code { display: block; font: 12px/1.6 Consolas, monospace; overflow-wrap: anywhere; padding: 12px; background: var(--bg); border-radius: 6px; margin: 12px 0; user-select: all; }
+button { width: 100%; min-height: 44px; border: 0; border-radius: 7px; background: var(--accent); color: #fff; font: 600 12px "Segoe UI", sans-serif; cursor: pointer; }
+#toggleConnection { margin-top: 12px; }
+.setup + .setup { margin-top: 12px; }
+#aiConfig { white-space: pre-wrap; max-height: 170px; overflow-y: auto; }
+button:hover { filter: brightness(1.1); }
+button:disabled { opacity: .65; cursor: wait; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 0; outline-offset: 3px; }
+.feedback { min-height: 20px; }
+label { display: block; margin-top: 8px; font-size: 11px; }
+input { width: 100%; margin-top: 4px; padding: 8px; color: var(--text); background: var(--bg); border: 0; border-radius: 5px; font: 11px Consolas, monospace; }
+footer { display: flex; justify-content: space-between; margin-top: 18px; }
+a { color: var(--accent); text-decoration: none; font-size: 12px; }
+a:hover { text-decoration: underline; }
+@media (prefers-color-scheme: dark) { :root { --bg: #151923; --surface: #202634; --text: #eef1f9; --muted: #b2bdd2; --border: #354055; --accent: #a4afff; } button { background: #5664cf; } .connected .dot { background: #57d995; } .disconnected .dot { background: #ffb46d; } }
+/* Orbital identity and deliberate motion for the connection panel. */
+:root { --bg: #f7f6fb; --surface: #fff; --text: #252238; --muted: #68637b; --border: #e3dfef; --accent: #7251c9; }
+body { background: radial-gradient(ellipse at 5% 0%, #9874e712, transparent 45%), var(--bg); }
+header img { filter: drop-shadow(0 5px 10px #7955d629); transition: transform 280ms cubic-bezier(.2,.8,.2,1); }
+header:hover img { transform: rotate(-6deg); }
+.status, .setup { border-radius: 15px; box-shadow: 0 4px 20px #00000005; }
+button { background: #7955d6; border-radius: 10px; transition: background 160ms ease, box-shadow 220ms ease, transform 160ms ease; }
+button:hover:not(:disabled) { filter: none; background: #8965e2; box-shadow: 0 5px 16px #7955d624; }
+button:active:not(:disabled) { transform: scale(.98); }
+#openSidebar { margin-bottom: 4px; }
+@media (prefers-color-scheme: dark) { :root { --bg: #11121a; --surface: #1b1c28; --text: #f2f0fa; --muted: #aaa6be; --border: #353346; --accent: #b89cff; } button { background: #7955d6; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } header:hover img, button:active:not(:disabled) { transform: none; } }
+
+/* Borderless keyboard focus: use the control fill and label instead of a ring. */
+button:focus-visible, summary:focus-visible, a:focus-visible { outline: 0; text-decoration: underline; text-underline-offset: 3px; }
+input:focus-visible, select:focus-visible, textarea:not(#prompt):focus-visible { outline: 0; background: var(--accent-soft, var(--surface)); }

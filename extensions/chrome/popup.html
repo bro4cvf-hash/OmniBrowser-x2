@@ -1,100 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <style>
-    body {
-      width: 280px;
-      padding: 16px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 14px;
-      color: #333;
-    }
-    h1 {
-      font-size: 18px;
-      margin: 0 0 12px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .logo {
-      width: 24px;
-      height: 24px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 6px;
-    }
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-    }
-    .status.connected {
-      background: #e8f5e9;
-      color: #2e7d32;
-    }
-    .status.disconnected {
-      background: #ffebee;
-      color: #c62828;
-    }
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-    }
-    .dot.green { background: #4caf50; }
-    .dot.red { background: #f44336; }
-    .info {
-      font-size: 12px;
-      color: #666;
-      line-height: 1.5;
-    }
-    .code {
-      background: #f5f5f5;
-      padding: 8px;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 11px;
-      margin-top: 8px;
-      word-break: break-all;
-    }
-    a {
-      color: #667eea;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta name="color-scheme" content="light dark">
+  <title>OmniBrowser x2 connection</title>
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <h1>
-    <div class="logo"></div>
-    OmniBrowser
-  </h1>
-
-  <div id="status" class="status disconnected">
-    <span class="dot red"></span>
-    <span>Checking connection...</span>
-  </div>
-
-  <div class="info">
-    <p>Multi-profile browser automation for AI agents.</p>
-    <p>Works with Claude Code, GPT, Kimi K2, and more.</p>
-  </div>
-
-  <div class="info" style="margin-top: 12px;">
-    <strong>Extension ID:</strong>
-    <div class="code" id="extensionId"></div>
-  </div>
-
-  <div class="info" style="margin-top: 12px;">
-    <a href="https://github.com/seahyc/omnibrowser" target="_blank">GitHub</a> ·
-    <a href="https://github.com/seahyc/omnibrowser#readme" target="_blank">Docs</a>
-  </div>
-
+  <header>
+    <img src="icons/logo.svg" width="36" height="36" alt="">
+    <div><h1>OmniBrowser x2</h1><p class="subtitle">Browser tools for AI agents</p></div>
+  </header>
+  <main>
+    <button id="openSidebar" type="button">Open AI sidebar</button>
+    <p id="sidebarFeedback" class="feedback" role="status"></p>
+    <section id="status" class="status checking" role="status" aria-live="polite">
+      <span class="dot" aria-hidden="true"></span>
+      <div><h2 id="statusTitle">Checking connection…</h2><p id="statusDetail">Contacting the browser extension.</p></div>
+    </section>
+    <button id="toggleConnection" type="button">Connect</button>
+    <p class="note">Use tabs and logins in this Chrome profile. Disconnect to stop access and release controlled tabs.</p>
+    <section class="setup" aria-labelledby="aiSetupTitle">
+      <h2 id="aiSetupTitle">Connect your AI app</h2>
+      <p>Copy these settings into your AI app's MCP settings once.</p>
+      <code id="aiConfig">Connect to Chrome to show your settings.</code>
+      <button id="copyConfig" type="button" disabled>Copy AI connection settings</button>
+      <p id="configFeedback" class="feedback" role="status" aria-live="polite"></p>
+    </section>
+    <section class="setup" aria-labelledby="setupTitle">
+      <h2 id="setupTitle">First-time setup</h2>
+      <p>Double-click Install OmniBrowser.cmd once, then load this extension in your normal Chrome. The installer handles the connection automatically. For manual setup:</p>
+      <code id="installCommand"></code>
+      <button id="copyCommand" type="button">Copy setup command</button>
+      <p id="copyFeedback" class="feedback" role="status" aria-live="polite"></p>
+      <label for="extensionId">Extension ID</label>
+      <input id="extensionId" readonly spellcheck="false" aria-label="Extension ID">
+    </section>
+  </main>
+  <footer>
+    <a href="https://github.com/bro4cvf-hash/OmniBrowser-x2#readme" target="_blank" rel="noopener noreferrer">Setup guide ↗</a>
+    <a href="https://github.com/bro4cvf-hash/OmniBrowser-x2" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </footer>
   <script src="popup.js"></script>
 </body>
 </html>

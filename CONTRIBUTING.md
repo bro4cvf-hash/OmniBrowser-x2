@@ -1,4 +1,4 @@
-# Contributing to OmniBrowser
+# Contributing to OmniBrowser x2
 
 Thanks for your interest in contributing!
 
@@ -6,8 +6,8 @@ Thanks for your interest in contributing!
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/omnibrowser
-cd omnibrowser
+git clone https://github.com/bro4cvf-hash/OmniBrowser-x2.git
+cd OmniBrowser-x2
 
 # Create virtual environment
 python -m venv venv
@@ -20,24 +20,42 @@ pip install -e ".[dev]"
 ## Running Tests
 
 ```bash
-pytest tests/
+python -m pytest tests -q
+node scripts/test-extension.js
+node tests/test_extension.js
+node tests/test_sw_lifecycle_stress.js
+node tests/test_sidebar_agent.js
+node tests/test_sidebar_subagents.js
+node tests/test_automation_scheduler.js
+node tests/test_sidebar_batches.js
+node tests/test_sidebar_questions.js
 ```
+
+The extension runner discovers all JavaScript suites and runs up to four at once.
+Use `npm ci` to install the pinned browser-test dependency and
+`npx playwright install chromium` to install Chrome for Testing. The loaded-extension
+acceptance suite runs with a local provider fixture; paid provider evaluation is
+opt-in via `npm run eval:provider`. See [task verification](docs/task-reliability.md).
+Add `--browser` to include the Playwright/Chrome UI suites (run sequentially because
+they share preview files). Each suite has a two-minute deadline. CI runs the Python
+and non-browser JavaScript checks on pushes and pull requests. CI temporarily
+excludes existing E501 line-length violations; other lint rules remain enforced.
 
 ## Code Style
 
 We use [Ruff](https://github.com/astral-sh/ruff) for linting and formatting:
 
 ```bash
-ruff check .
-ruff format .
+python -m ruff check src tests
+python -m ruff format --check src tests
 ```
 
 ## Pull Request Process
 
 1. Fork the repo and create your branch from `main`
 2. Add tests for any new functionality
-3. Ensure tests pass (`pytest`)
-4. Ensure code is formatted (`ruff format .`)
+3. Ensure Python tests and extension checks pass
+4. Ensure code is formatted (`python -m ruff format src tests`)
 5. Update documentation if needed
 6. Submit PR with clear description
 

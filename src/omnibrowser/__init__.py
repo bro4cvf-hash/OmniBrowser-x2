@@ -1,17 +1,16 @@
 """
 OmniBrowser - Multi-profile browser automation for AI agents.
 
-Works with Claude, GPT, Kimi K2, DeepSeek, Ollama.
-Supports Chrome, Edge, Arc, Brave, Dia.
+Provides an asynchronous Chrome CDP adapter and an MCP tool server.
 """
 
 __version__ = "0.1.0"
 
 from omnibrowser.adapters.chrome import (
-    ChromeAdapter,
-    ChromeProfile,
-    ChromeInstance,
     CDPClient,
+    ChromeAdapter,
+    ChromeInstance,
+    ChromeProfile,
 )
 
 __all__ = [

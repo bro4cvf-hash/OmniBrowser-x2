@@ -5,13 +5,10 @@ build-backend = "hatchling.build"
 [project]
 name = "omnibrowser"
 version = "0.1.0"
-description = "The fastest multi-profile, multi-browser automation for AI agents"
+description = "OmniBrowser x2: Chrome automation and bounded local file tools for AI agents over MCP"
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.10"
-authors = [
-    { name = "Your Name", email = "your@email.com" }
-]
+requires-python = ">=3.10.1"
 keywords = [
     "browser-automation",
     "ai-agent",
@@ -32,7 +29,8 @@ classifiers = [
     "Topic :: Software Development :: Testing",
 ]
 dependencies = [
-    "mcp>=1.0.0",
+    "mcp>=1.12.0,<2",
+    "aiohttp>=3.9.0",
     "pydantic>=2.0.0",
     "httpx>=0.25.0",
     "websockets>=12.0",
@@ -40,6 +38,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+documents = ["pypdf>=5,<7"]
 dev = [
     "pytest>=7.0.0",
     "pytest-asyncio>=0.21.0",
@@ -57,10 +56,10 @@ all = [
 omnibrowser = "omnibrowser.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/omnibrowser"
-Documentation = "https://github.com/yourusername/omnibrowser#readme"
-Repository = "https://github.com/yourusername/omnibrowser"
-Issues = "https://github.com/yourusername/omnibrowser/issues"
+Homepage = "https://github.com/bro4cvf-hash/OmniBrowser-x2"
+Documentation = "https://github.com/bro4cvf-hash/OmniBrowser-x2#readme"
+Repository = "https://github.com/bro4cvf-hash/OmniBrowser-x2"
+Issues = "https://github.com/bro4cvf-hash/OmniBrowser-x2/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/omnibrowser"]

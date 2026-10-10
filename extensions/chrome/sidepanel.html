@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>OmniBrowser x2 Assistant</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header><div class="identity"><div class="brandMark"><img src="icons/logo.svg" width="30" height="30" alt=""></div><div><h1>OmniBrowser x2</h1><p><span class="liveDot"></span> Your browser assistant</p></div></div><div class="headerActions"><button id="memoryButton" class="iconButton quiet" type="button" aria-label="Memories" title="Memories"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 3h14v18l-7-4-7 4Z"/></svg></button><button id="historyButton" class="iconButton quiet" type="button" aria-label="Chat history" title="Chat history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 3v6h6M12 7v5l3 2"/></svg></button><button id="settingsButton" class="iconButton quiet" type="button" aria-label="Settings" title="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z"/><circle cx="12" cy="12" r="3"/></svg></button><button id="newChat" class="quiet" type="button">New chat</button></div></header>
+  <dialog id="historyDialog"><div class="dialogHeader"><h2>Chats</h2><button type="button" class="quiet iconButton" data-close="historyDialog" aria-label="Close history">×</button></div><input id="historySearch" type="search" placeholder="Search your chats" aria-label="Search chats"><div id="chatList"></div><p class="hint">Saved on this computer.</p></dialog>
+  <dialog id="settingsDialog"><div class="dialogHeader"><h2>Settings</h2><button type="button" class="quiet iconButton" data-close="settingsDialog" aria-label="Close settings">×</button></div>
+  <details id="settingsPanel">
+    <summary>AI settings <span id="modelBadge">Set up your AI</span></summary>
+    <form id="settingsForm">
+      <p class="hint">1. Choose your provider. 2. Select a model. 3. Test the connection, then try a page summary.</p>
+      <label for="provider">AI provider</label><select id="provider"><option value="openai">OpenAI</option><option value="custom">OpenAI-compatible</option><option value="local">Local server</option></select>
+      <label for="baseUrl">API base URL</label><input id="baseUrl" type="url" required value="https://api.openai.com/v1" spellcheck="false">
+      <label for="apiKey">API key</label><input id="apiKey" type="password" autocomplete="off" placeholder="Provider API key (optional for local servers)">
+      <p class="hint">The key stays in this browser session and is cleared when Chrome closes.</p>
+      <button id="refreshModels" type="button" class="quiet">Refresh models</button>
+      <p id="modelsFeedback" class="hint" role="status" aria-live="polite">Models are discovered automatically from your connection.</p>
+      <input id="model" type="hidden">
+      <label for="setupModel">Chat model</label><select id="setupModel"><option value="">Choose a model…</option></select>
+      <label for="manualModel">Or enter a model ID</label><input id="manualModel" spellcheck="false" placeholder="Model ID from your provider">
+      <button id="testConnection" type="button" class="quiet">Test connection</button><p id="connectionFeedback" class="hint" role="status"></p>
+      <p class="hint">This sends one small request to your selected provider and may use API credit.</p>
+      <details id="advancedSettings"><summary>Advanced settings</summary>
+      <div class="settingOptions"><label class="toolToggle"><input id="streaming" type="checkbox" checked> Stream replies</label><label class="toolToggle"><input id="parallelTools" type="checkbox" checked> Parallel tools</label></div>
+      <label for="parallelLimit">Concurrent tools</label><select id="parallelLimit"><option value="4">4 — Gentle</option><option value="8">8 — Balanced</option><option value="12" selected>12 — Fast</option><option value="16">16 — Maximum</option></select>
+      <label for="maxRounds">Tool rounds per task</label><select id="maxRounds"><option value="32">32</option><option value="64" selected>64</option><option value="128">128</option></select>
+      <label for="timeoutSeconds">Provider timeout</label><select id="timeoutSeconds"><option value="60">60 seconds</option><option value="90" selected>90 seconds</option><option value="180">3 minutes</option></select>
+      <label for="taskMinutes">Task time limit (minutes)</label><input id="taskMinutes" type="number" min="0" max="720" value="20" step="1">
+      <label for="inputTokenPrice">Input price ($ per million tokens)</label><input id="inputTokenPrice" type="number" min="0" value="0" step="any">
+      <label for="outputTokenPrice">Output price ($ per million tokens)</label><input id="outputTokenPrice" type="number" min="0" value="0" step="any">
+      <label for="taskCostLimit">Estimated task cost limit ($)</label><input id="taskCostLimit" type="number" min="0" value="0" step="any">
+      <p class="hint">Zero disables a time or cost limit. Token usage is tracked without a task cap, including sub-agents and retries. Cost uses the prices you enter; provider billing may differ.</p>
+      <label for="contextWindowTokens">Model context window (tokens)</label><input id="contextWindowTokens" type="number" min="4096" step="1" placeholder="Automatic, or enter your provider’s limit" aria-describedby="contextHelp">
+      <p id="contextHelp" class="hint">Uses your provider’s model limit, then a published limit for recognized models (including Gemini’s 1,048,576 tokens). Unknown models use 128,000 tokens. Enter a value to override detection. Space is reserved for the reply.</p>
+      <label class="toolToggle"><input id="autoCompact" type="checkbox" checked> Create checkpoints near the context limit</label>
+      <details class="mcpSettings"><summary>Connected tools (MCP)</summary>
+        <label class="toolToggle"><input id="mcpTools" type="checkbox" checked> Use connected tools</label>
+        <p class="hint">Connect search, scraping and other MCP servers using the installed bridge. Local servers must already be installed.</p>
+        <div class="settingOptions"><button id="mcpParallelPreset" type="button" class="quiet">Add web search</button><button id="mcpScraplingPreset" type="button" class="quiet">Add Scrapling</button></div>
+        <label for="mcpConfig">Server settings (JSON)</label><textarea id="mcpConfig" rows="7" spellcheck="false" aria-describedby="mcpHelp">{"mcpServers":{}}</textarea>
+        <p id="mcpHelp" class="hint">Commands, endpoints and credentials stay in this browser session. Only connect servers you trust. The assistant cannot change these settings.</p>
+        <div class="settingOptions"><button id="connectMcp" type="button">Connect servers</button><button id="disconnectMcp" type="button" class="quiet">Disconnect</button></div>
+        <p id="mcpFeedback" class="hint" role="status" tabindex="-1">No servers connected.</p>
+      </details>
+      <div class="settingOptions"><label class="toolToggle"><input id="browserTools" type="checkbox" checked> Browser tools</label><label class="toolToggle"><input id="fileTools" type="checkbox" checked> Read local files</label></div>
+      <label for="theme">Appearance</label><select id="theme"><option value="system">Match system</option><option value="dark">Dark</option><option value="light">Light</option></select>
+      <label for="textSize">Chat text size</label><select id="textSize"><option value="13">Small</option><option value="14" selected>Comfortable</option><option value="16">Large</option></select>
+      <div class="settingOptions"><label class="toolToggle"><input id="shine" type="checkbox" checked> Working light sweep</label><label class="toolToggle"><input id="enterSend" type="checkbox" checked> Enter to send</label></div>
+      <label class="toolToggle"><input id="memoryTools" type="checkbox" checked> Use saved memories in chats</label>
+      <p class="hint">Only relevant snippets are sent to your AI provider. Memories persist separately from chat history. Manage or delete them in Memories.</p>
+      <details class="memorySettings"><summary>Memory engine · Hindsight</summary>
+        <p class="hint">Your local Hindsight service connects automatically when available. Saved text is sent to this service and its configured AI provider. Original copies stay in this browser.</p>
+        <label for="memoryEndpoint">Memory service address</label><input id="memoryEndpoint" type="text" inputmode="url" value="http://127.0.0.1:8888" spellcheck="false">
+        <label for="memoryBank">Your memory bank</label><input id="memoryBank" maxlength="128" spellcheck="false">
+        <label for="memoryServiceKey">Memory service key</label><input id="memoryServiceKey" type="password" autocomplete="off" placeholder="Optional for your local service">
+        <p class="hint">This key stays in the browser session. The engine's AI key is configured separately when starting Hindsight.</p>
+        <label class="toolToggle"><input id="memoryVision" type="checkbox">Send saved images for visual memory</label>
+        <p class="hint">Requires a vision model in Hindsight. With this off, images stay local and their titles and notes can be recalled.</p>
+        <div class="settingOptions"><button id="memoryConnect" type="button">Connect Hindsight</button><button id="memoryDisconnect" type="button" class="quiet">Pause recall</button></div>
+        <button id="memorySync" type="button" class="quiet">Sync saved items</button>
+        <p id="memoryEngineFeedback" class="hint" role="status" aria-live="polite">Checking memory connection…</p>
+      </details>
+      <label class="toolToggle"><input id="rememberChats" type="checkbox" checked> Save chat history on this computer</label>
+      <p class="hint">Turning this off removes saved chats. API keys are never saved with chats.</p>
+      </details>
+      <button type="submit">Save settings</button><button id="exportDiagnostics" type="button" class="quiet" title="Export diagnostics">Export Diagnostics</button><p id="settingsFeedback" class="hint" role="status"></p>
+    </form>
+  </details>
+  <details id="filesPanel">
+    <summary>Local folders <span id="fileBadge">Add a folder</span></summary>
+    <div class="folderSettings">
+      <p class="hint">Allow access to a specific folder, or choose Full access below. Documents are read-only.</p>
+      <form id="folderForm"><label for="folderPath">Full folder path</label><input id="folderPath" placeholder="C:\Users\PC\Desktop\LLC" spellcheck="false" required><button id="addFolder" type="submit">Allow</button></form>
+      <div id="folderList"></div><button id="refreshFolders" type="button" class="quiet">Refresh folders</button>
+      <p id="folderFeedback" class="hint" role="status"></p>
+    </div>
+  </details>
+  </dialog>
+  <dialog id="memoryDialog" aria-labelledby="memoryHeading">
+    <div class="dialogHeader"><h2 id="memoryHeading">Memories</h2><button type="button" class="quiet iconButton" data-close="memoryDialog" aria-label="Close memories">×</button></div>
+    <label class="toolToggle"><input id="automaticMemoryEnabled" type="checkbox" checked> Save website memories automatically</label>
+    <p class="hint">Pages you view for 10 seconds are saved and synced to Hindsight. Updated pages replace earlier automatic copies. Private windows and sign-in/payment pages are skipped.</p>
+    <p id="automaticMemoryFeedback" class="hint" role="status" aria-live="polite">Checking automatic saving…</p>
+    <details><summary>Automatic saving options</summary>
+      <label class="toolToggle"><input id="automaticMemoryImages" type="checkbox" checked> Keep a representative page image</label>
+      <p class="hint">Up to one image per page, 1 MiB maximum. Images stay local unless visual memory is enabled in Settings.</p>
+      <label for="automaticMemoryExcluded">Sites to exclude</label><textarea id="automaticMemoryExcluded" rows="3" spellcheck="false" placeholder="example.com&#10;private.example.org"></textarea>
+      <p class="hint">One site per line. Subdomains are included. Existing memories remain until you delete them.</p>
+      <button id="automaticMemoryApply" type="button" class="quiet">Save exclusions</button>
+    </details>
+    <p class="hint">Original copies stay here. Hindsight recalls relevant information across chats when your memory service is running.</p>
+    <div class="memoryCaptureActions" role="group" aria-label="Save from this website">
+      <button id="memorySavePage" type="button">Save page</button><button id="memorySaveSelection" type="button" class="quiet">Save selection</button>
+      <button id="memorySummarize" type="button" class="quiet">Summarize &amp; save</button><button id="memoryChooseImage" type="button" class="quiet">Save image</button>
+      <button id="memorySaveScreenshot" type="button" class="quiet">Save screenshot</button>
+    </div>
+    <p id="memoryFeedback" class="hint" role="status" aria-live="polite"></p>
+    <section id="memoryImagePicker" hidden aria-label="Choose a website image"><h3>Choose an image</h3><div id="memoryImageOptions"></div><button id="memoryCancelImages" type="button" class="quiet">Cancel</button></section>
+    <details id="memoryNewNote"><summary>Add a note</summary><form id="memoryNoteForm">
+      <label for="memoryNoteTitle">Title</label><input id="memoryNoteTitle" maxlength="300" required>
+      <label for="memoryNoteContent">What should be remembered?</label><textarea id="memoryNoteContent" rows="4" maxlength="100000" required></textarea>
+      <label for="memoryNoteTags">Tags (comma separated)</label><input id="memoryNoteTags" placeholder="Ideas, research, preferences">
+      <button type="submit">Save note</button>
+    </form></details>
+    <section id="memoryLibrary">
+      <div class="memoryFilters"><input id="memorySearch" type="search" placeholder="Search memories or tags…" aria-label="Search memories">
+        <select id="memoryKind" aria-label="Filter memories"><option value="">All types</option><option value="page">Pages</option><option value="summary">Summaries</option><option value="excerpt">Selections</option><option value="image">Images</option><option value="screenshot">Screenshots</option><option value="note">Notes</option></select></div>
+      <label class="toolToggle"><input id="memoryPinned" type="checkbox">Pinned only</label>
+      <label class="toolToggle"><input id="memorySemantic" type="checkbox">Recall by meaning with Hindsight</label>
+      <div id="memoryList"></div><button id="memoryMore" type="button" class="quiet" hidden>Load more</button>
+    </section>
+    <section id="memoryDetail" hidden aria-label="Saved memory">
+      <button id="memoryBack" type="button" class="quiet">Back to memories</button>
+      <p id="memorySource" class="hint"></p><img id="memoryImage" hidden alt="Saved website image">
+      <form id="memoryEditForm"><label for="memoryEditTitle">Title</label><input id="memoryEditTitle" required maxlength="300">
+        <label for="memoryEditSummary">Summary</label><textarea id="memoryEditSummary" rows="4" maxlength="6000"></textarea>
+        <label for="memoryEditNote">Notes</label><textarea id="memoryEditNote" rows="3" maxlength="6000"></textarea>
+        <label for="memoryEditTags">Tags (comma separated)</label><input id="memoryEditTags">
+        <label class="toolToggle"><input id="memoryEditPinned" type="checkbox">Pin this memory</label><button type="submit">Save changes</button>
+      </form>
+      <details><summary>Saved original text</summary><pre id="memoryOriginal"></pre><button id="memoryReadMore" type="button" class="quiet" hidden>Read more</button></details>
+      <div class="memoryCaptureActions"><button id="memoryExport" type="button" class="quiet">Export memory</button><button id="memoryDelete" type="button" class="quiet">Delete memory</button></div>
+    </section>
+  </dialog>
+  <main id="messages" role="log" aria-label="Chat conversation" aria-live="polite">
+    <section id="welcome">
+      <div class="welcomeOrb" aria-hidden="true"><img src="icons/logo.svg" width="64" height="64" alt=""></div>
+      <span class="eyebrow"><span></span> A LITTLE LESS BUSYWORK</span>
+      <h2>Your browser.<br><span>More capable.</span></h2>
+      <p>From the first search to the final form. Bring your tabs and documents, and let Omni handle the steps.</p>
+      <div class="capabilityStrip" aria-label="Capabilities"><span>Research</span><i aria-hidden="true"></i><span>Documents</span><i aria-hidden="true"></i><span>Applications</span></div>
+      <div class="suggestionHeading">START SOMETHING</div>
+      <div class="suggestions">
+        <button type="button" data-prompt="Help me research suitable providers and prepare applications using my business documents. First ask which service I need and which folder contains the documents, then find three suitable candidates, track each result, fill and verify their forms, and leave them ready for review."><span class="suggestionIcon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5M8 10.5h5m-2.5-2.5v5"/></svg></span><span class="suggestionCopy"><strong>Research &amp; apply</strong><small>Find providers. Prepare the next step.</small></span><span class="suggestionArrow" aria-hidden="true">↗</span></button>
+        <button type="button" data-prompt="Use documents from my local folders to fill the current form. Discover the actual folder path instead of guessing, ask for missing information, verify each field, and leave the form for review."><span class="suggestionIcon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Zm0 0v6h6M8 13h8m-8 4h5"/></svg></span><span class="suggestionCopy"><strong>From files to forms</strong><small>Your documents, put to work.</small></span><span class="suggestionArrow" aria-hidden="true">↗</span></button>
+        <button type="button" data-prompt="Summarize the page I am viewing, identify its key details and useful next steps, and link to the source."><span class="suggestionIcon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M7 13h10m-10 3h6"/></svg></span><span class="suggestionCopy"><strong>Get the bigger picture</strong><small>Turn this page into useful takeaways.</small></span><span class="suggestionArrow" aria-hidden="true">↗</span></button>
+      </div>
+      <p class="welcomeNote">You set the direction. Omni takes care of the steps.</p>
+    </section>
+  </main>
+  <div id="toolActivity" aria-label="Tool activity" hidden></div>
+  <footer>
+    <section id="approval" hidden aria-label="Action approval">
+      <div class="approvalHeader"><h3 id="approvalTitle">Action Approval</h3><span id="approvalBadge" class="approvalBadge" hidden></span></div><p id="approvalText"></p>
+      <div id="approvalPreview" class="approvalPreview" hidden>
+        <div id="approvalDestinationRow" class="previewRow"><span>Destination</span><a id="approvalDestination" target="_blank" rel="noopener noreferrer"></a></div>
+        <div id="approvalRecordRow" class="previewRow"><span>Record</span><span id="approvalRecord"></span></div>
+        <div id="approvalFieldsSection" class="previewSection"><span>Fields</span><div class="approvalTableWrap"><table id="approvalFields" class="approvalFields"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody id="approvalFieldsBody"></tbody></table></div></div>
+        <div id="approvalCitationsSection" class="previewSection"><span>Sources</span><ul id="approvalCitations"></ul></div>
+      </div>
+      <div id="approvalOutcome" class="approvalOutcome" role="status" aria-live="polite" hidden><span id="outcomeBadge"></span><span id="outcomeMessage"></span></div>
+      <div id="approvalActions" class="approvalChoices"><button id="denyAction" type="button" class="quiet">Don't allow</button><button id="allowOnce" type="button">Allow once</button><button id="allowTask" type="button" class="quiet">Allow for this task</button><button id="allowSite" type="button" class="quiet">Allow for this site (1 hr)</button></div>
+    </section>
+    <section id="recoveryControls" hidden aria-label="Task recovery">
+      <div class="recoveryHeader">
+        <span class="recoveryTitle">Task status</span>
+        <span id="recoveryStateBadge" class="recoveryBadge"></span>
+      </div>
+      <div class="recoveryActions">
+        <button id="resumeTask" type="button">Resume</button>
+        <button id="retryStep" type="button" class="quiet">Retry step</button>
+        <button id="takeOverTab" type="button" class="quiet">Take over tab</button>
+      </div>
+    </section>
+    <div class="composerShell">
+    <form id="composer"><label class="sr-only" for="prompt">Message your browser assistant</label><textarea id="prompt" rows="1" maxlength="16000" placeholder="Ask anything, or give me a task…" required></textarea><div class="composerActions"><button id="stop" type="button" class="quiet" hidden>Stop</button><button id="send" type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button></div><span id="activity" role="status"></span></form>
+    <div class="contextRow"><span id="contextUsage" class="hint" aria-label="Context usage" aria-live="polite"></span><span class="contextTrack" aria-hidden="true"><span id="contextFill"></span></span></div>
+    <span id="taskUsage" class="hint" role="status" aria-label="Task usage"></span>
+    <div class="composerToolbar">
+      <details id="accessMenu" class="permissionsMenu" data-mode="ask">
+        <summary id="accessLabel">Ask for approval</summary>
+        <div id="permissionsPanel" class="accessOptions" role="group" aria-label="Action approval mode">
+          <p class="accessHeading">How should actions be approved?</p>
+          <button type="button" data-access="ask" aria-pressed="true"><span class="accessIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 13V5a2 2 0 0 1 4 0v7m0-4a2 2 0 0 1 4 0v5m0-3a2 2 0 0 1 4 0v5c0 4-3 6-7 6-3 0-5-2-6-4l-3-5a2 2 0 0 1 3-2l3 3"/></svg></span><span><strong>Ask for approval</strong><small>Always ask to edit external files and use the internet</small></span><span class="accessCheck" aria-hidden="true">✓</span></button>
+          <button type="button" data-access="auto" aria-pressed="false"><span class="accessIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="m8 12 3 3 5-6"/></svg></span><span><strong>Approve for me</strong><small>Only ask for actions detected as potentially unsafe</small></span><span class="accessCheck" aria-hidden="true">✓</span></button>
+          <button type="button" data-access="full" aria-pressed="false"><span class="accessIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="M12 8v5m0 3h.01"/></svg></span><span><strong>Full access</strong><small>Unrestricted access to the internet and any file on your computer</small></span><span class="accessCheck" aria-hidden="true">✓</span></button>
+          <div class="activeGrantsSection" hidden>
+            <div id="siteGrantsHeading" class="grantsHeading" hidden>Active site grants</div>
+            <div id="siteGrantsList" class="grantsList"></div>
+            <div id="folderGrantsHeading" class="grantsHeading" hidden>Active folder grants</div>
+            <div id="folderGrantsList" class="grantsList"></div>
+          </div>
+        </div>
+      </details>
+      <select id="modelPicker" hidden aria-label="Model"><option value="">Connect your AI</option></select><div class="modelControl"><button id="modelButton" type="button" class="quiet" aria-expanded="false" aria-controls="modelMenu"><span class="modelGlyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><span id="modelName">Connect your AI</span><svg class="modelChevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button><section id="modelMenu" hidden aria-label="Choose a model"><div class="menuHeading">Select model</div><input id="modelSearch" type="search" placeholder="Search models…" aria-label="Search models"><div id="modelOptions"></div></section></div>
+    </div>
+    </div>
+  </footer>
+  <script src="vendor/browser-reuse/kernels.js"></script><script src="semantic-locators.js"></script><script src="sidebar-policy.js"></script><script src="sidebar-ledger.js"></script><script src="sidebar-reconcile.js"></script><script src="completion-judge.js"></script><script src="diagnostic-exporter.js"></script><script src="sidebar-context.js"></script><script src="sidebar-questions.js"></script><script src="sidebar-subagents.js"></script><script src="task-session.js"></script><script src="task-client.js"></script><script src="task-budget.js"></script><script src="sidebar-agent.js"></script><script src="chat-renderer.js"></script><script src="sidepanel.js"></script><script src="memory-panel.js"></script>
+</body>
+</html>

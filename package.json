@@ -1,0 +1,12 @@
+{
+  "name": "omnibrowser-extension-checks",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/test-extension.js",
+    "test:browser": "node scripts/test-extension.js --browser",
+    "eval:provider": "node scripts/evaluate-provider.js --live"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

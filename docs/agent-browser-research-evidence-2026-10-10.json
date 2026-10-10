@@ -1,0 +1,132 @@
+{
+  "researchDate": "2026-10-10",
+  "recordedAtUtc": "2026-10-10T12:44:50.120600+00:00",
+  "method": "Selected pinned repository files and official documentation; static local-code comparison; no upstream runtimes or paid-model benchmarks executed.",
+  "repositories": [
+    {
+      "repo": "anthropics/claude-code",
+      "sha": "2301018b1f61073c501a8e7a4813ef48c239163b",
+      "date": "2026-10-09T19:28:36Z",
+      "fileCount": 1530
+    },
+    {
+      "repo": "openai/codex",
+      "sha": "806d9732c974bc8a51b8317c1bd8985544fe627c",
+      "date": "2026-10-10T08:51:21Z",
+      "fileCount": 9098
+    },
+    {
+      "repo": "microsoft/playwright-mcp",
+      "sha": "b8b4183e099f136cbec0388a6088d4aa2f6b9685",
+      "date": "2026-10-08T17:51:55Z",
+      "fileCount": 39
+    },
+    {
+      "repo": "browser-use/browser-use",
+      "sha": "c75e8476e26d18b7617643bc2ae082fae8eae431",
+      "date": "2026-10-07T16:39:05Z",
+      "fileCount": 538
+    },
+    {
+      "repo": "vercel-labs/agent-browser",
+      "sha": "44af39842650f0bb9c1afb7354df9a82921d4f09",
+      "date": "2026-10-09T18:06:37Z",
+      "fileCount": 482
+    },
+    {
+      "repo": "browserbase/stagehand",
+      "sha": "1fc884992b68a0196ea5c6e96cc29924b0922ef4",
+      "date": "2026-10-09T23:57:35Z",
+      "fileCount": 1796
+    },
+    {
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "sha": "f08dbe152502d66e75fa07fb2588dc0feb42bc20",
+      "date": "2026-10-09T13:44:14Z",
+      "fileCount": 342
+    },
+    {
+      "repo": "anomalyco/opencode",
+      "sha": "055d95bb7e278c94baf06235a52cac79dd13ba67",
+      "date": "2026-10-09T22:29:16Z",
+      "fileCount": 6630
+    }
+  ],
+  "localSnapshot": [
+    {
+      "path": "README.md",
+      "sha256": "d87e00f9bc2ec802d95c8f7d9b98131a81bf61ba9acb59d5ef17930c68153c86",
+      "bytes": 16843
+    },
+    {
+      "path": "extensions/chrome/sidebar-agent.js",
+      "sha256": "3a4e9e6e92b8af04d6e1ba8a1ed21614ee3da083c15382cc8b7701e49c947c12",
+      "bytes": 35373
+    },
+    {
+      "path": "extensions/chrome/sidebar-context.js",
+      "sha256": "b5b91108e9aab1f03bb6433078a7ec512e4bcd40f2f394c138f4c4aeae439969",
+      "bytes": 7752
+    },
+    {
+      "path": "extensions/chrome/sidepanel.js",
+      "sha256": "e11340c7b1ded1e1c0225ff12acda6dabe4d29abecfcb4d3877a51aff3e8c516",
+      "bytes": 37874
+    },
+    {
+      "path": "extensions/chrome/sidepanel.html",
+      "sha256": "1c8603d6f930d53cc25488d2dbbd9fe6cb8706b55ee846338bfd40a9e6028d56",
+      "bytes": 12335
+    },
+    {
+      "path": "extensions/chrome/background.js",
+      "sha256": "9ab60f4d88f811e6fdbca6259fedc3130831d6ef14553bc3da695dd0558bd999",
+      "bytes": 38236
+    },
+    {
+      "path": "src/omnibrowser/adapters/chrome.py",
+      "sha256": "454bf817ca2484166112096d9b279f780432e374bf7e5531f83eab525bef54e8",
+      "bytes": 19753
+    },
+    {
+      "path": "src/omnibrowser/mcp/server.py",
+      "sha256": "f979f91a3318c3b3fb94c32aa66620c672a4afeff9a13293bdbed51a46f63198",
+      "bytes": 31299
+    },
+    {
+      "path": "src/omnibrowser/mcp/snapshot.py",
+      "sha256": "63b5a942ab83044e4187198d77aa2c9a63d2c485c87e69304956564cdf84e651",
+      "bytes": 1799
+    },
+    {
+      "path": "src/omnibrowser/sidebar_mcp.py",
+      "sha256": "76d41cb702b6dafa76be1afe38219d35dfa52148fb7e242a09dab2f3bc14b451",
+      "bytes": 12569
+    },
+    {
+      "path": "src/omnibrowser/files.py",
+      "sha256": "68ce15df4bf14df780051071fb305ffb6fbf2610492b4b036a121ff88aa19b74",
+      "bytes": 11965
+    },
+    {
+      "path": "src/omnibrowser/sidebar_files.py",
+      "sha256": "b1b42e8f0faa819952af607f1f1fcb8ac13bfbfa4f8f18089fc2a8da368b932d",
+      "bytes": 8748
+    },
+    {
+      "path": "src/omnibrowser/models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "src/omnibrowser/skills/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/test_browser_live.py",
+      "sha256": "f23d5f9477d56e89870ffc10ba1097ac57d9a8bf446cff68d49909a9a9b26a24",
+      "bytes": 12750
+    }
+  ]
+}

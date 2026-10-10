@@ -1,0 +1,506 @@
+{
+  "researchDate": "2026-10-10",
+  "scope": "Unmodified source reference excerpts, not runtime dependencies. Selected files do not constitute complete standalone packages.",
+  "repositories": [
+    {
+      "repository": "browser-use/browser-use",
+      "commit": "c75e8476e26d18b7617643bc2ae082fae8eae431",
+      "license": "MIT",
+      "stars": 117537,
+      "pushedAt": "2026-10-09T17:36:28Z",
+      "archived": false,
+      "rootNotices": [],
+      "latestStableRelease": {
+        "tag": "0.13.11",
+        "publishedAt": "2026-10-07T04:23:18Z",
+        "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.11"
+      }
+    },
+    {
+      "repository": "vercel-labs/agent-browser",
+      "commit": "44af39842650f0bb9c1afb7354df9a82921d4f09",
+      "license": "Apache-2.0",
+      "stars": 43768,
+      "pushedAt": "2026-10-10T05:23:39Z",
+      "archived": false,
+      "rootNotices": [],
+      "latestStableRelease": {
+        "tag": "v0.39.0",
+        "publishedAt": "2026-10-09T18:57:59Z",
+        "url": "https://github.com/vercel-labs/agent-browser/releases/tag/v0.39.0"
+      }
+    },
+    {
+      "repository": "ChromeDevTools/chrome-devtools-mcp",
+      "commit": "f08dbe152502d66e75fa07fb2588dc0feb42bc20",
+      "license": "Apache-2.0",
+      "stars": 53230,
+      "pushedAt": "2026-10-09T15:00:38Z",
+      "archived": false,
+      "rootNotices": [],
+      "latestStableRelease": {
+        "tag": "chrome-devtools-mcp-v1.10.1",
+        "publishedAt": "2026-09-23T10:37:16Z",
+        "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp/releases/tag/chrome-devtools-mcp-v1.10.1"
+      }
+    },
+    {
+      "repository": "browserbase/stagehand",
+      "commit": "f261c38b4dc50c39485f924e8599c1d3c6e37dc7",
+      "license": "MIT",
+      "stars": 25613,
+      "pushedAt": "2026-10-10T17:31:17Z",
+      "archived": false,
+      "rootNotices": [],
+      "latestStableRelease": {
+        "tag": "@browserbasehq/stagehand@3.7.3",
+        "publishedAt": "2026-08-28T14:46:59Z",
+        "url": "https://github.com/browserbase/stagehand/releases/tag/%40browserbasehq/stagehand%403.7.3"
+      }
+    },
+    {
+      "repository": "microsoft/playwright-mcp",
+      "commit": "b8b4183e099f136cbec0388a6088d4aa2f6b9685",
+      "license": "Apache-2.0",
+      "stars": 38000,
+      "pushedAt": "2026-10-08T17:51:59Z",
+      "archived": false,
+      "rootNotices": [],
+      "latestStableRelease": {
+        "tag": "v0.0.83",
+        "publishedAt": "2026-09-28T23:17:11Z",
+        "url": "https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.83"
+      }
+    },
+    {
+      "repository": "microsoft/playwright",
+      "commit": "d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c",
+      "license": "Apache-2.0",
+      "stars": 97431,
+      "pushedAt": "2026-10-10T04:39:12Z",
+      "archived": false,
+      "rootNotices": [
+        "NOTICE"
+      ],
+      "latestStableRelease": {
+        "tag": "v1.64.0",
+        "publishedAt": "2026-10-07T20:40:43Z",
+        "url": "https://github.com/microsoft/playwright/releases/tag/v1.64.0"
+      }
+    }
+  ],
+  "files": [
+    {
+      "repository": "browser-use/browser-use",
+      "commit": "c75e8476e26d18b7617643bc2ae082fae8eae431",
+      "upstreamPath": "LICENSE",
+      "localPath": "docs/upstream-browser-kit/browser-use--browser-use/LICENSE",
+      "url": "https://github.com/browser-use/browser-use/blob/c75e8476e26d18b7617643bc2ae082fae8eae431/LICENSE",
+      "sha256": "135c57671b0ee957669b05a0ca00cc06f645496d351e2e732832c6e276da9a5e",
+      "bytes": 1069,
+      "modified": false
+    },
+    {
+      "repository": "browser-use/browser-use",
+      "commit": "c75e8476e26d18b7617643bc2ae082fae8eae431",
+      "upstreamPath": "browser_use/agent/judge.py",
+      "localPath": "docs/upstream-browser-kit/browser-use--browser-use/browser_use/agent/judge.py",
+      "url": "https://github.com/browser-use/browser-use/blob/c75e8476e26d18b7617643bc2ae082fae8eae431/browser_use/agent/judge.py",
+      "sha256": "f9700ec95c721e5c65d02cfb1e861cd74c86f9aefafe94d460e2098827a90b0e",
+      "bytes": 10184,
+      "modified": false
+    },
+    {
+      "repository": "browser-use/browser-use",
+      "commit": "c75e8476e26d18b7617643bc2ae082fae8eae431",
+      "upstreamPath": "browser_use/browser/watchdogs/downloads_watchdog.py",
+      "localPath": "docs/upstream-browser-kit/browser-use--browser-use/browser_use/browser/watchdogs/downloads_watchdog.py",
+      "url": "https://github.com/browser-use/browser-use/blob/c75e8476e26d18b7617643bc2ae082fae8eae431/browser_use/browser/watchdogs/downloads_watchdog.py",
+      "sha256": "a27d9d5ef87d0d2c459cc26e7b6a77b3b6520b24758b4b1fe582920529ff4a07",
+      "bytes": 56973,
+      "modified": false
+    },
+    {
+      "repository": "browser-use/browser-use",
+      "commit": "c75e8476e26d18b7617643bc2ae082fae8eae431",
+      "upstreamPath": "tests/ci/test_downloads_watchdog.py",
+      "localPath": "docs/upstream-browser-kit/browser-use--browser-use/tests/ci/test_downloads_watchdog.py",
+      "url": "https://github.com/browser-use/browser-use/blob/c75e8476e26d18b7617643bc2ae082fae8eae431/tests/ci/test_downloads_watchdog.py",
+      "sha256": "bb4fa1f8c5acb37c6de117da1a4aa9a9871c89f9ee79d5ef7a96423c00952c63",
+      "bytes": 1528,
+      "modified": false
+    },
+    {
+      "repository": "browser-use/browser-use",
+      "commit": "c75e8476e26d18b7617643bc2ae082fae8eae431",
+      "upstreamPath": "tests/ci/browser/test_dom_serializer_session_identity.py",
+      "localPath": "docs/upstream-browser-kit/browser-use--browser-use/tests/ci/browser/test_dom_serializer_session_identity.py",
+      "url": "https://github.com/browser-use/browser-use/blob/c75e8476e26d18b7617643bc2ae082fae8eae431/tests/ci/browser/test_dom_serializer_session_identity.py",
+      "sha256": "09f7949e026e08ecf35959759e12395b2b0e3dc76a315e314f9ac0823d25e5e0",
+      "bytes": 4234,
+      "modified": false
+    },
+    {
+      "repository": "vercel-labs/agent-browser",
+      "commit": "44af39842650f0bb9c1afb7354df9a82921d4f09",
+      "upstreamPath": "LICENSE",
+      "localPath": "docs/upstream-browser-kit/vercel-labs--agent-browser/LICENSE",
+      "url": "https://github.com/vercel-labs/agent-browser/blob/44af39842650f0bb9c1afb7354df9a82921d4f09/LICENSE",
+      "sha256": "014bb31e83d5c2e76aea1cc6e82217346ab41362f32cb355ad0f5c10aa0aeaff",
+      "bytes": 10931,
+      "modified": false
+    },
+    {
+      "repository": "vercel-labs/agent-browser",
+      "commit": "44af39842650f0bb9c1afb7354df9a82921d4f09",
+      "upstreamPath": "cli/src/native/snapshot.rs",
+      "localPath": "docs/upstream-browser-kit/vercel-labs--agent-browser/cli/src/native/snapshot.rs",
+      "url": "https://github.com/vercel-labs/agent-browser/blob/44af39842650f0bb9c1afb7354df9a82921d4f09/cli/src/native/snapshot.rs",
+      "sha256": "fc547b34d2c3c3bdbe917852b05a114df6d27d95c254facf399906e1765970c9",
+      "bytes": 59996,
+      "modified": false
+    },
+    {
+      "repository": "vercel-labs/agent-browser",
+      "commit": "44af39842650f0bb9c1afb7354df9a82921d4f09",
+      "upstreamPath": "cli/src/native/diff.rs",
+      "localPath": "docs/upstream-browser-kit/vercel-labs--agent-browser/cli/src/native/diff.rs",
+      "url": "https://github.com/vercel-labs/agent-browser/blob/44af39842650f0bb9c1afb7354df9a82921d4f09/cli/src/native/diff.rs",
+      "sha256": "b3059a6e06bfb87eb35f545830dce76ef78c60afde31140bbaac9f56a558aec2",
+      "bytes": 11257,
+      "modified": false
+    },
+    {
+      "repository": "vercel-labs/agent-browser",
+      "commit": "44af39842650f0bb9c1afb7354df9a82921d4f09",
+      "upstreamPath": "packages/@agent-browser/eve/extension/tools/snapshot.ts",
+      "localPath": "docs/upstream-browser-kit/vercel-labs--agent-browser/packages/@agent-browser/eve/extension/tools/snapshot.ts",
+      "url": "https://github.com/vercel-labs/agent-browser/blob/44af39842650f0bb9c1afb7354df9a82921d4f09/packages/@agent-browser/eve/extension/tools/snapshot.ts",
+      "sha256": "c297fb1dd0c6fddd7351487cc2be5d8201aaeddc365b93ff15f9514a5a6345fe",
+      "bytes": 2815,
+      "modified": false
+    },
+    {
+      "repository": "vercel-labs/agent-browser",
+      "commit": "44af39842650f0bb9c1afb7354df9a82921d4f09",
+      "upstreamPath": "docs/content/docs/diffing.mdx",
+      "localPath": "docs/upstream-browser-kit/vercel-labs--agent-browser/docs/content/docs/diffing.mdx",
+      "url": "https://github.com/vercel-labs/agent-browser/blob/44af39842650f0bb9c1afb7354df9a82921d4f09/docs/content/docs/diffing.mdx",
+      "sha256": "b041bbc7eb65b405c733406c9613f89da0447885126ae78965c1d1700f1af929",
+      "bytes": 6941,
+      "modified": false
+    },
+    {
+      "repository": "ChromeDevTools/chrome-devtools-mcp",
+      "commit": "f08dbe152502d66e75fa07fb2588dc0feb42bc20",
+      "upstreamPath": "LICENSE",
+      "localPath": "docs/upstream-browser-kit/ChromeDevTools--chrome-devtools-mcp/LICENSE",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/f08dbe152502d66e75fa07fb2588dc0feb42bc20/LICENSE",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "bytes": 11357,
+      "modified": false
+    },
+    {
+      "repository": "ChromeDevTools/chrome-devtools-mcp",
+      "commit": "f08dbe152502d66e75fa07fb2588dc0feb42bc20",
+      "upstreamPath": "src/collectors/PageCollector.ts",
+      "localPath": "docs/upstream-browser-kit/ChromeDevTools--chrome-devtools-mcp/src/collectors/PageCollector.ts",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/f08dbe152502d66e75fa07fb2588dc0feb42bc20/src/collectors/PageCollector.ts",
+      "sha256": "b54ccea1e2746744f8aee9537291dab4f3d69ce28f47ba4cc710748c90269e3d",
+      "bytes": 12812,
+      "modified": false
+    },
+    {
+      "repository": "ChromeDevTools/chrome-devtools-mcp",
+      "commit": "f08dbe152502d66e75fa07fb2588dc0feb42bc20",
+      "upstreamPath": "tests/collectors/PageCollector.test.ts",
+      "localPath": "docs/upstream-browser-kit/ChromeDevTools--chrome-devtools-mcp/tests/collectors/PageCollector.test.ts",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/f08dbe152502d66e75fa07fb2588dc0feb42bc20/tests/collectors/PageCollector.test.ts",
+      "sha256": "26ec1634c379c5c733cc114ff54e72f28a3e123a3978bc1752d2a29f3f9c59c2",
+      "bytes": 17767,
+      "modified": false
+    },
+    {
+      "repository": "ChromeDevTools/chrome-devtools-mcp",
+      "commit": "f08dbe152502d66e75fa07fb2588dc0feb42bc20",
+      "upstreamPath": "src/TextSnapshot.ts",
+      "localPath": "docs/upstream-browser-kit/ChromeDevTools--chrome-devtools-mcp/src/TextSnapshot.ts",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/f08dbe152502d66e75fa07fb2588dc0feb42bc20/src/TextSnapshot.ts",
+      "sha256": "19f9ee42c5d21991c741b76e6b29028cdbbef44dad988b285606ebefac3397a7",
+      "bytes": 10468,
+      "modified": false
+    },
+    {
+      "repository": "ChromeDevTools/chrome-devtools-mcp",
+      "commit": "f08dbe152502d66e75fa07fb2588dc0feb42bc20",
+      "upstreamPath": "src/tools/network.ts",
+      "localPath": "docs/upstream-browser-kit/ChromeDevTools--chrome-devtools-mcp/src/tools/network.ts",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/f08dbe152502d66e75fa07fb2588dc0feb42bc20/src/tools/network.ts",
+      "sha256": "e2d0c0adc759c52dd6c989d258014f0b5fc92e2d617e8be95a8f28abfa1ffdb7",
+      "bytes": 4431,
+      "modified": false
+    },
+    {
+      "repository": "ChromeDevTools/chrome-devtools-mcp",
+      "commit": "f08dbe152502d66e75fa07fb2588dc0feb42bc20",
+      "upstreamPath": "src/tools/console.ts",
+      "localPath": "docs/upstream-browser-kit/ChromeDevTools--chrome-devtools-mcp/src/tools/console.ts",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/f08dbe152502d66e75fa07fb2588dc0feb42bc20/src/tools/console.ts",
+      "sha256": "e79b5491d456d170cd80fe9eace6c1216e80c3edc528d53af54f65ee21d72ad8",
+      "bytes": 3822,
+      "modified": false
+    },
+    {
+      "repository": "browserbase/stagehand",
+      "commit": "f261c38b4dc50c39485f924e8599c1d3c6e37dc7",
+      "upstreamPath": "LICENSE",
+      "localPath": "docs/upstream-browser-kit/browserbase--stagehand/LICENSE",
+      "url": "https://github.com/browserbase/stagehand/blob/f261c38b4dc50c39485f924e8599c1d3c6e37dc7/LICENSE",
+      "sha256": "fac7e7cd1cfc504054ee1fc53c38e0f3099d7357917e85a73792f6511fe0ea96",
+      "bytes": 1073,
+      "modified": false
+    },
+    {
+      "repository": "browserbase/stagehand",
+      "commit": "f261c38b4dc50c39485f924e8599c1d3c6e37dc7",
+      "upstreamPath": "packages/extension/services/cacheService.ts",
+      "localPath": "docs/upstream-browser-kit/browserbase--stagehand/packages/extension/services/cacheService.ts",
+      "url": "https://github.com/browserbase/stagehand/blob/f261c38b4dc50c39485f924e8599c1d3c6e37dc7/packages/extension/services/cacheService.ts",
+      "sha256": "927196861d1e4b1c3fae9ceeafc1700c672fde714481d4cfff5b0050e0f1893e",
+      "bytes": 12870,
+      "modified": false
+    },
+    {
+      "repository": "browserbase/stagehand",
+      "commit": "f261c38b4dc50c39485f924e8599c1d3c6e37dc7",
+      "upstreamPath": "packages/extension/clients/cacheClient.ts",
+      "localPath": "docs/upstream-browser-kit/browserbase--stagehand/packages/extension/clients/cacheClient.ts",
+      "url": "https://github.com/browserbase/stagehand/blob/f261c38b4dc50c39485f924e8599c1d3c6e37dc7/packages/extension/clients/cacheClient.ts",
+      "sha256": "4b8d955fb369e6e120083540f99ebaa7a01736bae8e6c468891ff74c58996112",
+      "bytes": 5824,
+      "modified": false
+    },
+    {
+      "repository": "browserbase/stagehand",
+      "commit": "f261c38b4dc50c39485f924e8599c1d3c6e37dc7",
+      "upstreamPath": "packages/extension/services/observeService.ts",
+      "localPath": "docs/upstream-browser-kit/browserbase--stagehand/packages/extension/services/observeService.ts",
+      "url": "https://github.com/browserbase/stagehand/blob/f261c38b4dc50c39485f924e8599c1d3c6e37dc7/packages/extension/services/observeService.ts",
+      "sha256": "24ec7cfb79a2de0d745e71f253be670e58069943e953a2c467c84251e1f58431",
+      "bytes": 6676,
+      "modified": false
+    },
+    {
+      "repository": "browserbase/stagehand",
+      "commit": "f261c38b4dc50c39485f924e8599c1d3c6e37dc7",
+      "upstreamPath": "packages/extension/tests/cache-service.test.ts",
+      "localPath": "docs/upstream-browser-kit/browserbase--stagehand/packages/extension/tests/cache-service.test.ts",
+      "url": "https://github.com/browserbase/stagehand/blob/f261c38b4dc50c39485f924e8599c1d3c6e37dc7/packages/extension/tests/cache-service.test.ts",
+      "sha256": "0562eddf14fa80e21b62fc018409214dd2d55ae223e6f356ab9b5a1876bd7bd9",
+      "bytes": 10304,
+      "modified": false
+    },
+    {
+      "repository": "browserbase/stagehand",
+      "commit": "f261c38b4dc50c39485f924e8599c1d3c6e37dc7",
+      "upstreamPath": "packages/evals/docs/verifier-gates.md",
+      "localPath": "docs/upstream-browser-kit/browserbase--stagehand/packages/evals/docs/verifier-gates.md",
+      "url": "https://github.com/browserbase/stagehand/blob/f261c38b4dc50c39485f924e8599c1d3c6e37dc7/packages/evals/docs/verifier-gates.md",
+      "sha256": "83fdc95815fd54b102d33d5b99a006e4a71ba3cea7370d941489759a481eed0b",
+      "bytes": 4791,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright-mcp",
+      "commit": "b8b4183e099f136cbec0388a6088d4aa2f6b9685",
+      "upstreamPath": "LICENSE",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright-mcp/LICENSE",
+      "url": "https://github.com/microsoft/playwright-mcp/blob/b8b4183e099f136cbec0388a6088d4aa2f6b9685/LICENSE",
+      "sha256": "9a7110fc2d2f964038e5dc49128f908f29f47a574c961cba16085914e879cbda",
+      "bytes": 11552,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright-mcp",
+      "commit": "b8b4183e099f136cbec0388a6088d4aa2f6b9685",
+      "upstreamPath": "src/README.md",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright-mcp/src/README.md",
+      "url": "https://github.com/microsoft/playwright-mcp/blob/b8b4183e099f136cbec0388a6088d4aa2f6b9685/src/README.md",
+      "sha256": "3d00272808ea1d6e079ae69638aa9f2b713309d0c082ee5d23aa6aa2d58587d5",
+      "bytes": 281,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright-mcp",
+      "commit": "b8b4183e099f136cbec0388a6088d4aa2f6b9685",
+      "upstreamPath": "package.json",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright-mcp/package.json",
+      "url": "https://github.com/microsoft/playwright-mcp/blob/b8b4183e099f136cbec0388a6088d4aa2f6b9685/package.json",
+      "sha256": "624f0ba4d387028bbc734520142fbebb7075a88da8b623f4760adf76aa212f8b",
+      "bytes": 1539,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright-mcp",
+      "commit": "b8b4183e099f136cbec0388a6088d4aa2f6b9685",
+      "upstreamPath": "tests/click.spec.ts",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright-mcp/tests/click.spec.ts",
+      "url": "https://github.com/microsoft/playwright-mcp/blob/b8b4183e099f136cbec0388a6088d4aa2f6b9685/tests/click.spec.ts",
+      "sha256": "57f512b5956927ce1bbab2d4b1c3d6a69c761b88c5875cc208667b52cbda716f",
+      "bytes": 1580,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright",
+      "commit": "d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c",
+      "upstreamPath": "LICENSE",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright/LICENSE",
+      "url": "https://github.com/microsoft/playwright/blob/d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c/LICENSE",
+      "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb",
+      "bytes": 11601,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright",
+      "commit": "d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c",
+      "upstreamPath": "packages/playwright-core/src/tools/mcp/browserModel.ts",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright/packages/playwright-core/src/tools/mcp/browserModel.ts",
+      "url": "https://github.com/microsoft/playwright/blob/d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c/packages/playwright-core/src/tools/mcp/browserModel.ts",
+      "sha256": "e89261f77ef4d78935c051e42e50458e74066381cc6f071196a112e5fe96110b",
+      "bytes": 9872,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright",
+      "commit": "d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c",
+      "upstreamPath": "packages/playwright-core/src/tools/mcp/watchdog.ts",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright/packages/playwright-core/src/tools/mcp/watchdog.ts",
+      "url": "https://github.com/microsoft/playwright/blob/d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c/packages/playwright-core/src/tools/mcp/watchdog.ts",
+      "sha256": "cf63e4ef7f82bdfbea69779004cdb52ac12e838e8efca40ccaed752d0237066f",
+      "bytes": 1371,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright",
+      "commit": "d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c",
+      "upstreamPath": "packages/injected/src/ariaSnapshot.ts",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright/packages/injected/src/ariaSnapshot.ts",
+      "url": "https://github.com/microsoft/playwright/blob/d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c/packages/injected/src/ariaSnapshot.ts",
+      "sha256": "3e2d747818f752185e4153cf0670205caaf83c9c2f70e2c855907d51be9a46be",
+      "bytes": 20490,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright",
+      "commit": "d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c",
+      "upstreamPath": "packages/injected/src/ariaSnapshotDistiller.ts",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright/packages/injected/src/ariaSnapshotDistiller.ts",
+      "url": "https://github.com/microsoft/playwright/blob/d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c/packages/injected/src/ariaSnapshotDistiller.ts",
+      "sha256": "788fb8baca7eb47080afb9a3a5dee8e42eceac91a6e0512c4a5faffa757e8314",
+      "bytes": 11941,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright",
+      "commit": "d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c",
+      "upstreamPath": "packages/injected/src/injectedScript.ts",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright/packages/injected/src/injectedScript.ts",
+      "url": "https://github.com/microsoft/playwright/blob/d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c/packages/injected/src/injectedScript.ts",
+      "sha256": "599824b60d41b48e07eee4f83d00786e5fb956c8c2f260fd20d5dea424c63816",
+      "bytes": 85051,
+      "modified": false
+    },
+    {
+      "repository": "microsoft/playwright",
+      "commit": "d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c",
+      "upstreamPath": "NOTICE",
+      "localPath": "docs/upstream-browser-kit/microsoft--playwright/NOTICE",
+      "url": "https://github.com/microsoft/playwright/blob/d9f2fd3e2232ace8e317a84eda6cb86e25bcf49c/NOTICE",
+      "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d",
+      "bytes": 254,
+      "modified": false
+    },
+    {
+      "repository": "vercel-labs/agent-browser",
+      "commit": "44af39842650f0bb9c1afb7354df9a82921d4f09",
+      "upstreamPath": "cli/src/native/element.rs",
+      "localPath": "docs/upstream-browser-kit/vercel-labs--agent-browser/cli/src/native/element.rs",
+      "url": "https://github.com/vercel-labs/agent-browser/blob/44af39842650f0bb9c1afb7354df9a82921d4f09/cli/src/native/element.rs",
+      "sha256": "c279492fadba480162d4060fc69b26ed9125c09288ef345147ef7012b11d6254",
+      "bytes": 57250,
+      "modified": false
+    },
+    {
+      "repository": "vercel-labs/agent-browser",
+      "commit": "44af39842650f0bb9c1afb7354df9a82921d4f09",
+      "upstreamPath": "cli/src/native/cdp/client.rs",
+      "localPath": "docs/upstream-browser-kit/vercel-labs--agent-browser/cli/src/native/cdp/client.rs",
+      "url": "https://github.com/vercel-labs/agent-browser/blob/44af39842650f0bb9c1afb7354df9a82921d4f09/cli/src/native/cdp/client.rs",
+      "sha256": "8dcb9c1e7936e96c59b05ee52a5afa2160be1045e2d32ad52720dd1c515b51f6",
+      "bytes": 45272,
+      "modified": false
+    },
+    {
+      "repository": "browserbase/stagehand",
+      "commit": "f261c38b4dc50c39485f924e8599c1d3c6e37dc7",
+      "upstreamPath": "packages/extension/services/actService.ts",
+      "localPath": "docs/upstream-browser-kit/browserbase--stagehand/packages/extension/services/actService.ts",
+      "url": "https://github.com/browserbase/stagehand/blob/f261c38b4dc50c39485f924e8599c1d3c6e37dc7/packages/extension/services/actService.ts",
+      "sha256": "e67fea018a6e710d024086a466d510e0eac96c3bad31ba18513a11563c62dc62",
+      "bytes": 16948,
+      "modified": false
+    }
+  ],
+  "localSnapshot": [
+    {
+      "path": "extensions/chrome/background.js",
+      "sha256": "5179aa9e0dc4e1650889122e58d89cce3e43046a055f5182dbd5d7223d846a94",
+      "bytes": 156136
+    },
+    {
+      "path": "extensions/chrome/task-coordinator.js",
+      "sha256": "b18fccb414ab480edb222037162632ac618f288c7ceb4ffc1dc9f656522cdae7",
+      "bytes": 5296
+    },
+    {
+      "path": "extensions/chrome/task-client.js",
+      "sha256": "ad497ed61d9d154ee4a06ba76bcc51855b00c2f9001c63de912698dd147bac79",
+      "bytes": 8358
+    },
+    {
+      "path": "extensions/chrome/task-session.js",
+      "sha256": "69a67bd7d57ee00c5446ba9460dc7af93ced5a11454112f6b58465cd653df383",
+      "bytes": 4134
+    },
+    {
+      "path": "extensions/chrome/sidebar-agent.js",
+      "sha256": "b819af1a35690f65fa4f6c3801341d8efff07bdb15dddc6227222aaadc2e0144",
+      "bytes": 116106
+    },
+    {
+      "path": "extensions/chrome/sidebar-context.js",
+      "sha256": "95b6f7a84ceaa65b3fe16cef97d0a4696224554ba31e820bd8ceb33f21f85ba0",
+      "bytes": 11411
+    },
+    {
+      "path": "extensions/chrome/completion-judge.js",
+      "sha256": "f25cc43fe9d642ddf67c226a4400cf0ee885185c6be80efb081ca42c598e4346",
+      "bytes": 26910
+    },
+    {
+      "path": "extensions/chrome/sidepanel.js",
+      "sha256": "e3be24ca46a6d4b218f4d1441856c0f7fbb3a0ea6d6c9ac43d2ab38489a5379d",
+      "bytes": 98198
+    },
+    {
+      "path": "src/omnibrowser/adapters/chrome.py",
+      "sha256": "a06fac8079ca3d7010ac79c62dd585bf4aa255abf5096d9fc1ff88e87439a456",
+      "bytes": 20886
+    },
+    {
+      "path": "src/omnibrowser/mcp/server.py",
+      "sha256": "6c7954619b89d1a0a4ec2f2afcc7a9df44a040a9f00e7ad21e23a9fc00bdb2c2",
+      "bytes": 46398
+    }
+  ]
+}

@@ -1,20 +1,30 @@
 {
   "manifest_version": 3,
-  "name": "OmniBrowser",
+  "minimum_chrome_version": "116",
+  "name": "OmniBrowser x2",
   "version": "0.1.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlYBTu0NhtvPijQyBLvcQO5ejtTQVzbOAKP3NN6eUD0Bv2bN/Ofnv94+5dLKiVhSuVnxJICw52uJMP9iPlicvSwNMnDVX2BG5otDlc6Tdn5kbhaKsWX29hoY3XakNBobCbFZTTzesI5JWQrmE3dmcujSauoOOxGBhoBZiTd6JqJViRie9RL1jsJu5WpTbpNW3cMRL08IrEg5ZfWE+/TZFIQW5+lWP73DmPSyaOtDx6BAqVYYZCBHYsaF7tBYKJD3ZGThWK9FNyt5rH/jViERcmbQKFlxRQYnQ8q7TQFKI33TYg0YdyI5gvXCQV+vAkw2w3XmgHE0KAVZGEfzaMmUf9QIDAQAB",
   "description": "Multi-profile browser automation for AI agents",
   "permissions": [
     "activeTab",
     "tabs",
     "scripting",
     "nativeMessaging",
-    "debugger"
+    "debugger",
+    "sidePanel",
+    "storage",
+    "alarms",
+    "unlimitedStorage",
+    "downloads"
   ],
   "host_permissions": [
     "<all_urls>"
   ],
   "background": {
     "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
   },
   "action": {
     "default_popup": "popup.html",

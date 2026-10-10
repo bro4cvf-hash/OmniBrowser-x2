@@ -1,0 +1,11 @@
+{
+  "package": "@vectorize-io/hindsight-client",
+  "version": "0.10.3",
+  "repository": "https://github.com/vectorize-io/hindsight",
+  "tag": "v0.10.3",
+  "commit": "eb6df499d35300e5b2f3f029b2e6adda04ed90f8",
+  "integrity": "sha512-bCBIeZVIEUftC4PX20cHaqgxN+NOm4XOhHWYtmfPMIEuVs39vdMMq3LX7Z0dSunVKVlnVWB9BSWr5I5ZDtDtVA==",
+  "upstreamFile": "dist/index.js",
+  "upstreamSha256": "850a5eae26c3e3531020f3a0b91fa65e8acbb41a3734d5a4342084f6a24fdacd",
+  "modifications": "Unmodified release code enclosed in a CommonJS-to-browser global wrapper; no runtime downloads or evaluation."
+}
